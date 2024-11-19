@@ -1,0 +1,8 @@
+.c-footer {
+    &__wrap {
+        border-top: 1px solid light-dark(#dde1ff, #fff);
+        min-height: 6.25rem;
+        padding: 1rem 0;
+        background-color: light-dark(#f5f5ff, #000);
+    }
+}

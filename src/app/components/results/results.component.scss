@@ -1,0 +1,37 @@
+.c-results {
+  &__list {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    li {
+        min-height: 250px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+  }
+  &__sort {
+    flex: 0 0 auto;
+    border-radius: 4px;
+    background-color: light-dark(#9b3200, #9b3200);
+    border: none;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    color: light-dark(#fff, #fff);
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+    h2 {
+        line-height: 1;
+      font-size: 1.125rem;
+      color: light-dark(#283275, #283275);
+      font-weight: 600;
+    }
+  }
+  &__wrap {
+  }
+}

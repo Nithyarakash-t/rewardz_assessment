@@ -1,0 +1,21 @@
+.c-main {
+    &__inner {
+        display: grid;
+        grid-template-columns: 15.625rem 1fr;
+        gap: 1rem;
+        align-items: start;
+    }
+    &__outer {
+        padding: 1rem 0 2rem;
+    }
+}
+
+.c-applied {
+    &__filters {
+        margin-bottom: 1rem;
+        p {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}

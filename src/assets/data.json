@@ -1,0 +1,38 @@
+{
+    "reward-1": {
+        "pk": 987,
+        "name": "Reward Name",
+        "points": 150,
+        "display_img_url": "",
+        "quantity": 14,
+        "valid_until": "2024-12-31T00:00:00",
+        "low_quantity": 10
+    },
+    "reward-2": {
+        "pk": 987,
+        "name": "Test Reward 2",
+        "points": 150,
+        "display_img_url": "",
+        "quantity": 14,
+        "valid_until": "2024-12-31T00:00:00",
+        "low_quantity": 10
+    },
+    "reward-3": {
+        "pk": 987,
+        "name": "Test Reward 3",
+        "points": 150,
+        "display_img_url": "",
+        "quantity": 14,
+        "valid_until": "2024-12-31T00:00:00",
+        "low_quantity": 10
+    },
+    "reward-4": {
+        "pk": 987,
+        "name": "Test Reward 4",
+        "points": 150,
+        "display_img_url": "",
+        "quantity": 14,
+        "valid_until": "2024-12-31T00:00:00",
+        "low_quantity": 10
+    }
+}

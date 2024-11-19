@@ -1,0 +1,33 @@
+.c-sidebar {
+    &__checkbox {
+        flex: 0 0 1rem;
+        margin-left: auto;
+        input {
+            height: 1rem;
+            width: 1rem;
+        }
+    }
+    &__list {
+        margin-top: 1rem;
+        box-shadow: 0 2px 11px rgba(0, 0, 0, 0.1);
+        li {
+            padding: 0.25rem 1rem;
+            display: flex;
+            gap: 1rem;
+            &:not(:last-child) {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        
+    }
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+    &__wrap {
+        padding: 1rem 0.5rem 2rem;
+        background-color: light-dark(#fff, #fff);
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 11px rgba(0, 0, 0, 0.1);
+    }
+}
