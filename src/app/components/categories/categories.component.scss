@@ -1,10 +1,36 @@
 .c-sidebar {
     &__checkbox {
-        flex: 0 0 1rem;
+        --size: 1rem;
+        flex: 0 0 var(--size);
+        height: var(--size);
+        position: relative;
         margin-left: auto;
+        span {
+            display: inline-block;
+            height: var(--size);
+            width: var(--size);
+            background-color: transparent;
+            border: 1px solid #a0a0a0;
+            border-radius: 50%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m2.75 8.75l3.5 3.5l7-7.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+        }
         input {
-            height: 1rem;
-            width: 1rem;
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            appearance: none;
+            cursor: pointer;
+            margin: 0;
+            &:checked {
+                + span {
+                    background-color: #ff0000;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m2.75 8.75l3.5 3.5l7-7.5'/%3E%3C/svg%3E");
+                    border-color: #ff0000;
+                }
+            }
         }
     }
     &__list {

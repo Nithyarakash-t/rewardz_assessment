@@ -1,8 +1,43 @@
 .c-footer {
+    &__logo {
+        height: 3.75rem;
+        width: 3.75rem;
+        background-color: #fff;
+    }
+    &__version,
+    &__about {
+        h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            padding-bottom: 1rem;
+        }
+        ul {
+            li {
+                a {
+                    color: inherit;
+                    &:hover,
+                    &:focus-visible {
+                        text-decoration: underline;
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+    &__main {
+        display: grid;
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    &__copyright {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+    }
     &__wrap {
         border-top: 1px solid light-dark(#dde1ff, #fff);
         min-height: 6.25rem;
         padding: 1rem 0;
         background-color: light-dark(#f5f5ff, #000);
+        color: light-dark(#afb1c4, #fff);
     }
 }
