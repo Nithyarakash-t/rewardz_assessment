@@ -19,7 +19,7 @@
     flex-direction: column;
     position: relative;
     // min-height: calc(100vh - 3.4375rem); //header height
-    background: transparent no-repeat center;
+    background: light-dark(#f5f5ff, #f5f5ff) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     flex: 1;

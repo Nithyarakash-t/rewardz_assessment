@@ -1,0 +1,69 @@
+<section class="c-results__wrap">
+    <div class="c-results__header">
+        <h2>{{data.length}} results found</h2>
+        <button type="button" class="c-results__sort" aria-label="Sort" aria-controls="results_sort_flyout" (click)="openFlyout()"
+        [attr.aria-expanded]="isFlyoutOpen">Sort</button>
+    </div>
+    <ul class="c-results__list">
+        <!-- Items can be a component of their own, but because they're display only, they're kept here -->
+        @for (product of data; track product; let index = $index) {
+            <li>
+                <div class="c-results__item">
+                    <div class="c-results__item-head">
+                        <!-- <img src="{{product.display_img_url}}" alt=""/> -->
+                        <img src="assets/images/lorem-ipsum.jpg" alt="Lorem-ipsum" />
+                        <!-- high demand if < 10 -->
+                        @if(product.quantity < product.low_quantity && product.quantity > 0) {
+                            <div class="c-results__item-notice">
+                                <p class="-demand">On High Demand</p>
+                                <p>Only {{product.quantity}} rewards left</p>
+                            </div>
+                        }
+                        @if(product.quantity === 0) {
+                            <div class="c-results__item-notice">
+                                <p>(Out of Stock)</p>
+                            </div>
+                        }
+                    </div>
+                    <div class="c-results__item-body">
+                        <h3>{{product.name}}</h3>
+                        <p>{{product.points}} Points</p>
+                    </div>
+                    <div class="c-results__item-foot">
+                        <p>Valid Until - <span>{{product.valid_until | date : 'dd-MM-YYYY'}}</span></p>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</section>
+
+@if(isFlyoutOpen){
+    <div class="c-flyout__overlay" (click)="closeFlyout()"></div>
+}
+<div class="c-flyout" [ngClass]="{'-open' : isFlyoutOpen}" id="results_sort_flyout" 
+[attr.aria-hidden]="!isFlyoutOpen"
+aria-labelledby="flyoutTitle">
+    <div class="c-flyout__head">
+        <a href="javascript:;" role="button" aria-label="Reset all">Reset All</a>
+        <h1>Filters</h1>
+    </div>
+    <div class="c-flyout__body">
+        <div class="c-form__group">
+            <h2>Sort</h2>
+            <div class="c-form__field">
+                <label class="c-radio">
+                    <input type="radio" id="ascending" value="ascending" name="sort" checked/>
+                    <span>A to Z</span>
+                </label>
+                <label class="c-radio">
+                    <input type="radio" id="descending" value="descending" name="sort" />
+                    <span>Z to A</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="c-flyout__footer">
+        <button type="button" (click)=" handleSort(); closeFlyout();">Apply</button>
+    </div>
+</div>
