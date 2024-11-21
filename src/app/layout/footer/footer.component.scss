@@ -29,6 +29,11 @@
         display: grid;
         align-items: start;
         grid-template-columns: repeat(3, 1fr);
+        row-gap: 1rem;
+
+        @media(max-width: 300px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
     &__copyright {
         margin-top: 1rem;

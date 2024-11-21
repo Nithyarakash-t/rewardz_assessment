@@ -81,6 +81,14 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
+
+    @media(max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__sort {
     flex: 0 0 auto;
@@ -195,7 +203,6 @@
     padding-bottom: 0.625rem;
     border-bottom: 1px solid #b6b6b6;
     gap: 1rem;
-    width: 18.75rem;
     a {
       color: #de9240;
     }
@@ -220,6 +227,8 @@
     position: fixed;
     inset: 0 0 0 auto;
     height: 100%;
+    width: clamp(18.75rem, 18.75rem, 90vw);
+
     &:not(.-open) {
       transform: var(--transform-close);
     }

@@ -4,6 +4,14 @@
         grid-template-columns: 15.625rem 1fr;
         gap: 1rem;
         align-items: start;
+
+        @media(max-width: 675px) {
+            grid-template-columns: 12rem 1fr;
+        }
+
+        @media (max-width: 550px) {
+            grid-template-columns: 1fr;
+        }
     }
     &__outer {
         padding: 1rem 0 2rem;
