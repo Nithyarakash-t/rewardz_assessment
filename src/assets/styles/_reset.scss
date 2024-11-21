@@ -7,55 +7,54 @@
 // For recommendations on resolving such conflicts, see
 // http://getbootstrap.com/getting-started/#third-box-sizing
 
-:root {
-  --color-base-white: #fff;
-  --color-base-black: #000;
 
-  //------------------
+@mixin base-theme-light {
   --color-default: var(--color-base-black);
   --color-contrast: var(--color-base-white);
   --color-overlay: rgba(0, 0, 0, 0.6);
 
-  // Ability to provide smooth scroll behavior on supported browsers only.
-  color-scheme: light dark;
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
-
-[data-theme="dark"] {
-  --color-default: var(--color-base-white);
-  --color-contrast: var(--color-base-black);
-  --color-overlay: rgba(255, 255, 255, 0.6);
-}
-
-@mixin base-theme-light {
   --color-base-background: var(--color-base-white, #fff);
   --color-base-text: var(--color-base-black, #000);
   --color-base-border: var(--color-base-black, #000);
 }
 @mixin base-theme-dark {
+  --color-default: var(--color-base-white);
+  --color-contrast: var(--color-base-black);
+  --color-overlay: rgba(255, 255, 255, 0.6);
+
   --color-base-background: var(--color-base-black, #000);
   --color-base-text: var(--color-base-white, #fff);
   --color-base-border: var(--color-base-white, #fff);
+}
+
+
+:root {
+  --color-base-white: #fff;
+  --color-base-black: #000;
+
+  // Ability to provide smooth scroll behavior on supported browsers only.
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+
+  color-scheme: light dark;
+  @include base-theme-light();
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    @include base-theme-dark();
+  }
+
+  &:has(html[data-theme=dark]) {
+    color-scheme: dark;
+    @include base-theme-dark();
+  }
 }
 
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-body {
-  @include base-theme-light();
-}
-html[data-theme="dark"] {
-  body {
-    @include base-theme-dark();
-  }
 }
 
 // CSS RESETs - START

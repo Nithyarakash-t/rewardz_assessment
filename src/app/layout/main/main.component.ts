@@ -22,10 +22,12 @@ export class MainComponent {
   }
 
   removeFilter(string:string) {
-
+    let clonedSet = new Set(this.filters);
+    clonedSet.delete(string);
+    this.service.setfilter = clonedSet;
   }
 
   clearFilters() {
-
+    this.service.setfilter = new Set();
   }
 }

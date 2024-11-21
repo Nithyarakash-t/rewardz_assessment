@@ -21,15 +21,12 @@ export class DatahandlerService {
   data$:Observable<any> = this.dataSubject.asObservable();
 
   search:string = ``;
-  filter: Set<string> = new Set();
-
   private filterSubject:BehaviorSubject<Set<string>> = new BehaviorSubject<Set<string>>(new Set());
   filter$:Observable<any> = this.filterSubject.asObservable();
 
   constructor() {
     this.dataSubject.next([...data]);
   }
-
 
   /**Method to set search */
   set setsearch(string:string) {
@@ -48,7 +45,7 @@ export class DatahandlerService {
     const result:Datum[] = [];
 
     for(let datum of [...data]) {
-      if(datum.name.includes(this.search)) {
+      if((datum.name.toLowerCase()).includes(this.search.toLowerCase())) {
         //if filter is applied
         if(this.filterSubject.value.size > 0) {
           if(this.filterSubject.value.has(datum.type as string)) {
@@ -63,7 +60,4 @@ export class DatahandlerService {
 
     this.dataSubject.next(result);
   }
-
-
-
 }

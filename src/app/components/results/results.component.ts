@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { AfterViewInit, Component, input } from '@angular/core';
 import { DatahandlerService, Datum } from '../../services/datahandler.service';
 import { DatePipe, NgClass } from '@angular/common';
 
@@ -15,11 +15,10 @@ export class ResultsComponent {
 
   constructor(private dataservice:DatahandlerService) {
     this.dataservice.data$.subscribe((response)=>{
-      this.data = [...response]
+      this.data = [...response];
     })
   }
 
-  /**Flyout methods */
   openFlyout() {
     document.body.style.setProperty('overflow', 'hidden');
     this.isFlyoutOpen = true;

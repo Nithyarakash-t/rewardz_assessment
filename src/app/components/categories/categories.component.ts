@@ -18,6 +18,8 @@ export class CategoriesComponent {
   }
 
   handleCheckbox(event:Event) {
+    event.preventDefault();
+    
     let clonedSet = new Set(this.filters);
 
     let cb = (event?.currentTarget as HTMLInputElement);
