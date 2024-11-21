@@ -3,6 +3,25 @@
     <div class="app-container">
         <div class="c-applied__filters">
             <p>Applied filters: </p>
+            <ul>
+                @for(filter of filters; track filter; let index = $index) {
+                    <li>
+                        {{filter}} 
+                        <a href="javascript:;" attr.aria-label="remove {{filter}} filter" (click)="removeFilter(filter)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 21 21"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m15.5 15.5l-10-10zm0-10l-10 10"/></svg>
+                        </a>
+                    </li>
+                }
+                
+                @if (filters.size > 0) {
+                    <li>
+                        clear filters 
+                        <a href="javascript:;" aria-label="remove all filters" (click)="clearFilters()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 21 21"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m15.5 15.5l-10-10zm0-10l-10 10"/></svg>
+                        </a>
+                    </li>
+                }
+            </ul>
         </div>
         <div class="c-main__inner">
             <app-categories></app-categories>

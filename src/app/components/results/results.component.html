@@ -1,6 +1,6 @@
 <section class="c-results__wrap">
     <div class="c-results__header">
-        <h2>21 results found</h2>
+        <h2>{{data.length}} results found</h2>
         <button type="button" class="c-results__sort" aria-label="Sort" aria-controls="results_sort_flyout" (click)="openFlyout()"
         [attr.aria-expanded]="isFlyoutOpen">Sort</button>
     </div>
@@ -41,7 +41,8 @@
 @if(isFlyoutOpen){
     <div class="c-flyout__overlay" (click)="closeFlyout()"></div>
 }
-<div class="c-flyout" [ngClass]="{'-open' : isFlyoutOpen}" id="results_sort_flyout" [attr.aria-hidden]="isFlyoutOpen"
+<div class="c-flyout" [ngClass]="{'-open' : isFlyoutOpen}" id="results_sort_flyout" 
+[attr.aria-hidden]="!isFlyoutOpen"
 aria-labelledby="flyoutTitle">
     <div class="c-flyout__head">
         <a href="javascript:;" role="button" aria-label="Reset all">Reset All</a>
@@ -63,6 +64,6 @@ aria-labelledby="flyoutTitle">
         </div>
     </div>
     <div class="c-flyout__footer">
-        <button type="button" (click)="closeFlyout()">Apply</button>
+        <button type="button" (click)=" handleSort(); closeFlyout();">Apply</button>
     </div>
 </div>

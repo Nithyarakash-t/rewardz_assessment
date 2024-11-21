@@ -1,4 +1,6 @@
-const data = [
+import { Datum } from "./datahandler.service";
+
+const data:Datum[] = [
   {
     pk: 987,
     name: 'Test Reward 1',
@@ -7,6 +9,7 @@ const data = [
     quantity: 14,
     valid_until: '2024-12-31T00:00:00',
     low_quantity: 10,
+    type: 'e-voucher'
   },
   {
     pk: 987,
@@ -16,6 +19,7 @@ const data = [
     quantity: 0,
     valid_until: '2024-12-31T00:00:00',
     low_quantity: 10,
+    type: 'products'
   },
   {
     pk: 987,
@@ -25,6 +29,7 @@ const data = [
     quantity: 4,
     valid_until: '2024-12-31T00:00:00',
     low_quantity: 10,
+    type: 'evergreen'
   },
   {
     pk: 987,
@@ -34,6 +39,7 @@ const data = [
     quantity: 14,
     valid_until: '2024-12-31T00:00:00',
     low_quantity: 10,
+    type: 'fashion & retail'
   },
   {
     pk: 987,
@@ -43,6 +49,7 @@ const data = [
     quantity: 14,
     valid_until: '2024-12-31T00:00:00',
     low_quantity: 10,
+    type: 'e-voucher'
   },
 ];
 

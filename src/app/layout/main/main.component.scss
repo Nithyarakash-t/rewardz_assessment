@@ -12,10 +12,40 @@
 
 .c-applied {
     &__filters {
+        display: flex;
+        align-items: flex-start;
         margin-bottom: 1rem;
+        gap: 1rem;
         p {
             font-size: 1rem;
             font-weight: 600;
+            flex: 0 0 auto;
+            margin-top: 3px;
+        }
+        ul {
+            display: flex;
+            gap: 1rem;
+            li {
+                background-color: light-dark(#f0f0f0, #f0f0f0);
+                border: 1px solid light-dark(#777a7a, #777a7a);
+                color: light-dark(#777a7a, #777a7a);
+                padding: 0.375rem 0.625rem;
+                border-radius: 4px;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                a {
+                    display: inline-block;
+                    line-height: 1;
+                    height: 1rem;
+                    aspect-ratio: 1/1;
+                    svg {
+                        height: 1rem;
+                        width: 1rem;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { DatahandlerService, Datum } from '../../services/datahandler.service';
 import { DatePipe, NgClass } from '@angular/common';
 
@@ -14,7 +14,9 @@ export class ResultsComponent {
   isFlyoutOpen = false;
 
   constructor(private dataservice:DatahandlerService) {
-    this.data = [...this.dataservice.arrayDataGetter];
+    this.dataservice.data$.subscribe((response)=>{
+      this.data = [...response]
+    })
   }
 
   /**Flyout methods */
@@ -24,7 +26,23 @@ export class ResultsComponent {
   }
 
   closeFlyout() {
+    const control = document.querySelector('.c-results__sort') as HTMLButtonElement;
+    control.focus();
+
     document.body.style.removeProperty('overflow');
     this.isFlyoutOpen = false;
+  }
+
+  handleSort() {
+    let radio = document.querySelector('.c-radio input:checked') as HTMLInputElement;
+    this.data.sort((a,b)=>{
+      if(radio.value === 'ascending') {
+        return a.name.localeCompare(b.name);
+      }
+      else {
+        return b.name.localeCompare(a.name);
+      }
+    })
+
   }
 }
