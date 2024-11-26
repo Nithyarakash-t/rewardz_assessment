@@ -7,7 +7,6 @@
 // For recommendations on resolving such conflicts, see
 // http://getbootstrap.com/getting-started/#third-box-sizing
 
-
 @mixin base-theme-light {
   --color-default: var(--color-base-black);
   --color-contrast: var(--color-base-white);
@@ -27,7 +26,6 @@
   --color-base-border: var(--color-base-white, #fff);
 }
 
-
 :root {
   --color-base-white: #fff;
   --color-base-black: #000;
@@ -45,19 +43,25 @@
     @include base-theme-dark();
   }
 
-  &:has(html[data-theme=dark]) {
+  &:has(html[data-theme="dark"]) {
     color-scheme: dark;
     @include base-theme-dark();
   }
 }
 
+// CSS RESETs - START
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
-// CSS RESETs - START
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit; /* Get rid of all font sizes and heights */
+}
+
 h1,
 h2,
 h4,
@@ -72,22 +76,6 @@ li,
 figcaption {
   text-wrap: pretty;
   max-width: 65ch;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -109,6 +97,7 @@ body {
 }
 
 html {
+  // color-scheme: dark light; /* Default dark */
   font-size: 16px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -132,26 +121,14 @@ body {
   }
 }
 
-// Reset fonts for relevant elements
 button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-button {
+[role="button"] {
   cursor: pointer;
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     pointer-events: none;
     opacity: 0.75;
   }
-}
-
-[role="button"] {
-  cursor: pointer;
 }
 
 // Links
@@ -159,26 +136,37 @@ a {
   color: var(--color-default, #000);
   text-decoration: none;
 
-  &:focus,
+  &:focus-visible,
   &:hover {
     color: var(--color-link, #a100ff);
   }
 
   &[aria-disabled="true"] {
-    pointer-events: none !important;
+    pointer-events: none;
     opacity: 0.75;
   }
 }
 
-// Figures
-// We reset this here because previously Normalize had no `figure` margins. This
-// ensures we don't break anyone's use of the element.
-figure {
-  margin: 0;
-}
-
 // Images
 img {
+  // width: 100%;
+  // height: auto;
   vertical-align: middle;
 }
+
+/* Media responsive */
+// img,
+// picture,
+// svg,
+// video {
+//   display: block;
+//   max-width: 100%;
+// }
+
+// @media (prefers-reduced-motion: no-preference) {
+//   :has(:target) {
+//     scroll-behavior: smooth;
+//     scroll-padding-top: 3rem;
+//   }
+// }
 // CSS RESETs - END

@@ -22,6 +22,7 @@
     &__filters {
         display: flex;
         align-items: flex-start;
+        flex-wrap: wrap;
         margin-bottom: 1rem;
         gap: 1rem;
         p {
@@ -32,6 +33,7 @@
         }
         ul {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             li {
                 background-color: light-dark(#f0f0f0, #f0f0f0);
